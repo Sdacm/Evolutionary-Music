@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<title>Evolutionary Music</title>
+</head>
+<body>
+<div class="title">
+    <h1>Evolutionary Music</h1>
+</div>   
+<nav>
+  <ul class="menu">
+    <li><a href="index.html">What is it?</a></li>
+    <li><a href="instructions.html">Instructions</a></li>
+    <li><a class="selected" href="play.html">Play</a></li>
+  </ul>
+</nav>
+	<div class="piano">
+		<div data-note="C3" class="white key"></div>
+		<div data-note="C3#" class="black key"></div>
+		<div data-note="D3" class="white key"></div>
+		<div data-note="D3#" class="black key"></div>
+		<div data-note="E3" class="white key"></div>
+		<div data-note="F3" class="white key"></div>
+		<div data-note="F3#" class="black key"></div>
+		<div data-note="G3" class="white key"></div>
+		<div data-note="G3#" class="black key"></div>
+		<div data-note="A4" class="white key"></div>
+		<div data-note="A4#" class="black key"></div>
+		<div data-note="B4" class="white key"></div>
+		<div data-note="C4" class="white key"></div>
+		<div data-note="C4#" class="black key"></div>
+		<div data-note="D4" class="white key"></div>
+		<div data-note="D4#" class="black key"></div>
+		<div data-note="E4" class="white key"></div>
+		<div data-note="F4" class="white key"></div>
+		<div data-note="F4#" class="black key"></div>
+		<div data-note="G4" class="white key"></div>
+		<div data-note="G4#" class="black key"></div>
+		<div data-note="A5" class="white key"></div>
+		<div data-note="A5#" class="black key"></div>
+		<div data-note="B5" class="white key"></div>
+		<div data-note="C5" class="white key"></div>
+		<div data-note="C5#" class="black key"></div>
+		<div data-note="D5" class="white key"></div>
+		<div data-note="D5#" class="black key"></div>
+		<div data-note="E5" class="white key"></div>
+		<div data-note="F5" class="white key"></div>
+		<div data-note="F5#" class="black key"></div>
+		<div data-note="G5" class="white key"></div>
+		<div data-note="G5#" class="black key"></div>
+		<div data-note="C6" class="white key"></div>
+	</div>
+
+	<audio id="C3" src="notes/c3.mp3"></audio>
+	<audio id="C3#" src="notes/c-3.mp3"></audio>
+	<audio id="D3" src="notes/d3.mp3"></audio>
+	<audio id="D3#" src="notes/d-3.mp3"></audio>
+	<audio id="E3" src="notes/e3.mp3"></audio>
+	<audio id="F3" src="notes/f3.mp3"></audio>
+	<audio id="F3#" src="notes/f-3.mp3"></audio>
+	<audio id="G3" src="notes/g3.mp3"></audio>
+	<audio id="G3#" src="notes/g-3.mp3"></audio>
+	<audio id="A4" src="notes/a4.mp3"></audio>
+	<audio id="A4#" src="notes/a-4.mp3"></audio>
+	<audio id="B4" src="notes/b4.mp3"></audio>
+	<audio id="C4" src="notes/c4.mp3"></audio>
+	<audio id="C4#" src="notes/c-4.mp3"></audio>
+	<audio id="D4" src="notes/d4.mp3"></audio>
+	<audio id="D4#" src="notes/d-4.mp3"></audio>
+	<audio id="E4" src="notes/e4.mp3"></audio>
+	<audio id="F4" src="notes/f4.mp3"></audio>
+	<audio id="F4#" src="notes/f-4.mp3"></audio>
+	<audio id="G4" src="notes/g4.mp3"></audio>
+	<audio id="G4#" src="notes/g-4.mp3"></audio>
+	<audio id="A5" src="notes/a5.mp3"></audio>
+	<audio id="A5#" src="notes/a-5.mp3"></audio>
+	<audio id="B5" src="notes/b5.mp3"></audio>
+	<audio id="C5" src="notes/c5.mp3"></audio>
+	<audio id="C5#" src="notes/c-5.mp3"></audio>
+	<audio id="D5" src="notes/d5.mp3"></audio>
+	<audio id="D5#" src="notes/d-5.mp3"></audio>
+	<audio id="E5" src="notes/e5.mp3"></audio>
+	<audio id="F5" src="notes/f5.mp3"></audio>
+	<audio id="F5#" src="notes/f-5.mp3"></audio>
+	<audio id="G5" src="notes/g5.mp3"></audio>
+	<audio id="G5#" src="notes/g-5.mp3"></audio>
+	<audio id="C6" src="notes/c6.mp3"></audio>
+	
+	<div class="forms">
+	Choose the Note <select id="nota" onchange="getNote();" required>
+    	<option value="0" selected="selected">--NOTE--</option>
+    	<option value="c">C</option>
+    	<option value="c#">C#</option>
+		<option value="d">D</option>
+    	<option value="d#">D#</option>
+   		<option value="e">E</option>
+		<option value="f">F</option>
+    	<option value="f#">F#</option>
+    	<option value="g">G</option>
+		<option value="g#">G#</option>
+    	<option value="a">A</option>
+    	<option value="a#">A#</option>
+		<option value="b">B</option>
+  	</select>
+		
+	&nbsp;&nbsp;&nbsp;Choose the Scale <select id="escala" onchange="getEscala();" disabled="true" required>
+    	<option value="0" selected="selected">--SCALE--</option>
+    	<option value="pentatonica">Pentatonica</option>
+    	<option value="maior">Maior</option>
+  	</select>
+	</div>
+
+	<table class="rules">
+	<tr class="number">
+			<td>111</td>
+			<td>110</td>
+			<td>101</td>
+			<td>100</td>
+			<td>011</td>
+			<td>010</td>
+			<td>001</td>
+			<td>000</td>
+		</tr>
+	<tr style="padding-right:15px !important;">
+    <td id="regra">0</td>
+	<td><input type="checkbox" name="rule[]" onclick="getRegra(128)"></td>
+	<td><input type="checkbox" name="rule[]" onclick="getRegra(64)"></td>
+	<td><input type="checkbox" name="rule[]" onclick="getRegra(32)"></td>
+	<td><input type="checkbox" name="rule[]" onclick="getRegra(16)"></td>
+	<td><input type="checkbox" name="rule[]" onclick="getRegra(8)"></td>
+	<td><input type="checkbox" name="rule[]" onclick="getRegra(4)"></td>
+	<td><input type="checkbox" name="rule[]" onclick="getRegra(2)"></td>
+	<td><input type="checkbox" name="rule[]" onclick="getRegra(1)"></td>
+	</tr>
+	</table>
+	<div class="sands">
+	<button id="comecar" onclick="comecar ()" disabled="true">START</button>
+	&nbsp;&nbsp;&nbsp;
+	<button id="parar" onclick="parar ()" disabled="true">STOP</button>	
+	</div>
+	<script>
+		const keys = document.querySelectorAll('.key');
+
+		keys.forEach(key => {
+			key.addEventListener('click', () => playNote(key));
+		})
+
+		function playNote(key) {
+			const noteAudio = document.getElementById(key.dataset.note);
+			noteAudio.currentTime = 0;
+			noteAudio.play();
+			key.classList.add('active');
+			noteAudio.addEventListener('ended', () => {
+				key.classList.remove('active');
+			});
+		}
+
+		const c3 = keys[0];
+		const cs3 = keys[1];
+		const d3 = keys[2];
+		const ds3 = keys [3];
+		const e3 = keys[4];
+		const f3 = keys[5];
+		const fs3 = keys[6];
+		const g3 = keys [7];
+		const gs3 = keys[8];
+		const a3 = keys[9];
+		const as3 = keys[10];
+		const b3 = keys [11];
+		const c4 = keys[12];
+		const cs4 = keys[13];
+		const d4 = keys[14];
+		const ds4 = keys [15];
+		const e4 = keys[16];
+		const f4 = keys[17];
+		const fs4 = keys[18];
+		const g4 = keys [19];
+		const gs4 = keys[20];
+		const a4 = keys[21];
+		const as4 = keys[22];
+		const b4 = keys [23];
+		const c5 = keys[24];
+		const cs5 = keys [25];
+		const d5 = keys[26];
+		const ds5 = keys[27];
+		const e5 = keys[28];
+		const f5 = keys [29];
+		const fs5 = keys [30];
+		const g5 = keys[31];
+		const gs5 = keys[32];
+		const c6 = keys[33];
+
+		const notas = [c3,cs3,d3,ds3,e3,f3,fs3,g3,gs3,a3,as3,b3,c4,cs4,d4,ds4,e4,f4,fs4,g4,gs4,a4,as4,b4,c5,cs5,d5,ds5,e5,f5,fs5,g5,gs5,c6];
+
+		var p = 0;
+		var nota;
+		var tom;
+		var tempo = 1000;
+		var start;
+		var update;
+		var escala;
+		var pentatonica;
+		var maior;
+		var pent = false;
+		var maj = false;
+		var inputEscala = false;
+		var inputRegra = false;
+		var rule = 0;
+		var estado = "00000100000";
+		var range;
+		var regra;
+
+		var ca = [["111","0"],["110","0"],["101","0"],["100","0"],["011","0"],["010","0"],["001","0"],["000","0"]];
+		
+		function getNote () {
+			nota = document.getElementById("nota").value;
+			switch (nota) {
+				case "c":
+				tom = c4;
+				break;
+				case "c#":
+				tom = cs4;
+				break;
+				case "d":
+				tom = d4;
+				break;
+				case "d#":
+				tom = ds4;
+				break;
+				case "e":
+				tom = e4;
+				break;
+				case "f":
+				tom = f4;
+				break;
+				case "f#":
+				tom = fs4;
+				break;
+				case "g":
+				tom = g4;
+				break;
+				case "g#":
+				tom = gs4;
+				break;
+				case "a":
+				tom = a4;
+				break;
+				case "a#":
+				tom = as4;
+				break;
+				case "b":
+				tom = b4;
+				break;
+				case "c":
+				tom = c4;
+				break;
+				default:
+				tom = c3;
+			}
+			if (inputEscala) {
+				if (escala == "pentatonica") {
+					escalaPentatonica ();
+					range = [pentatonica[p-5],pentatonica[p-4],pentatonica[p-3],pentatonica[p-2],pentatonica[p-1],pentatonica[p],pentatonica[p+1],pentatonica[p+2],pentatonica[p+3],pentatonica[p+4],pentatonica[p+5]];
+					console.log(range);
+				}
+				if (escala == "maior") {
+					escalaMaior ();
+					range = [maior[p-5],maior[p-4],maior[p-3],maior[p-2],maior[p-1],maior[p],maior[p+1],maior[p+2],maior[p+3],maior[p+4],maior[p+5]];
+					console.log(range);
+				}
+			}
+			console.log("Nota: " + nota);
+			document.getElementById("escala").disabled = false;
+		}
+
+		function getEscala () {
+			escala = document.getElementById("escala").value;
+			if (escala == "pentatonica") {
+				escalaPentatonica ();
+				range = [pentatonica[p-5],pentatonica[p-4],pentatonica[p-3],pentatonica[p-2],pentatonica[p-1],pentatonica[p],pentatonica[p+1],pentatonica[p+2],pentatonica[p+3],pentatonica[p+4],pentatonica[p+5]];
+				console.log(range);
+			}
+			if (escala == "maior") {
+				escalaMaior ();
+				range = [maior[p-5],maior[p-4],maior[p-3],maior[p-2],maior[p-1],maior[p],maior[p+1],maior[p+2],maior[p+3],maior[p+4],maior[p+5]];
+				console.log(range);
+			}
+			inputEscala = true;
+			console.log("Escala: " + escala);
+			document.getElementById("comecar").disabled = false;
+		}
+
+		function escalaPentatonica () {
+			pentatonica = [];
+			var pos = -1;
+			for (var i = 0; i < notas.length; i++) {
+				if (tom == notas[i]) {
+					pos = i;
+					break;
+				}
+			}
+			i = pos;
+			pentatonica.push(notas[i]);
+			while(i < notas.length) {
+				i += 2;
+				if (i < notas.length) pentatonica.push(notas[i]);
+				i += 2;
+				if (i < notas.length) pentatonica.push(notas[i]);
+				i += 3;
+				if (i < notas.length) pentatonica.push(notas[i]);
+				i += 2;
+				if (i < notas.length) pentatonica.push(notas[i]);
+				i += 3;
+				if (i < notas.length) pentatonica.push(notas[i]);
+			}
+			i = pos;
+			while(i >= 0) {
+				i -= 3;
+				if (i >= 0) pentatonica.unshift(notas[i]);
+				i -= 2;
+				if (i >= 0) pentatonica.unshift(notas[i]);
+				i -= 3;
+				if (i >= 0) pentatonica.unshift(notas[i]);
+				i -= 2;
+				if (i >= 0) pentatonica.unshift(notas[i]);
+				i -= 2;
+				if (i >= 0) pentatonica.unshift(notas[i]);
+			}
+			p = pentatonica.indexOf(tom);
+			pent = true;
+			maj = false;
+		}
+
+		function escalaMaior () {
+			maior = [];
+			var pos = -1;
+			for (var i = 0; i < notas.length; i++) {
+				if (tom == notas[i]) {
+					pos = i;
+					break;
+				}
+			}
+			i = pos;
+			maior.push(notas[i]);
+			while(i < notas.length) {
+				i += 2;
+				if (i < notas.length) maior.push(notas[i]);
+				i += 2;
+				if (i < notas.length) maior.push(notas[i]);
+				i += 1;
+				if (i < notas.length) maior.push(notas[i]);
+				i += 2;
+				if (i < notas.length) maior.push(notas[i]);
+				i += 2;
+				if (i < notas.length) maior.push(notas[i]);
+				i += 2;
+				if (i < notas.length) maior.push(notas[i]);
+				i += 1;
+				if (i < notas.length) maior.push(notas[i]);
+			}
+			i = pos;
+			while(i >= 0) {
+				i -= 1;
+				if (i >= 0) maior.unshift(notas[i]);
+				i -= 2;
+				if (i >= 0) maior.unshift(notas[i]);
+				i -= 2;
+				if (i >= 0) maior.unshift(notas[i]);
+				i -= 2;
+				if (i >= 0) maior.unshift(notas[i]);
+				i -= 1;
+				if (i >= 0) maior.unshift(notas[i]);
+				i -= 2;
+				if (i >= 0) maior.unshift(notas[i]);
+				i -= 2;
+				if (i >= 0) maior.unshift(notas[i]);
+			}
+			p = maior.indexOf(tom);
+			pent = false;
+			maj = true;
+		}
+
+		function tocar () {
+			if (pent) {
+				for (var i = 0; i < estado.length; i++) {
+					if (estado[i] == "1") {
+						playNote(range[i]);
+						console.log(range[i]);
+					}
+				}
+			}
+			if (maj) {
+				for (var i = 0; i < estado.length; i++) {
+					if (estado[i] == "1") {
+						playNote(range[i]);
+						console.log(range[i]);
+					}
+				}
+			}
+		}
+
+		function comecar () {
+			parar();
+			if (!inputRegra) {
+				regra = "00000000"
+				regraCA(regra);
+				console.log(ca);
+			}
+
+			start = setInterval (tocar, tempo);
+			update = setInterval (actualizar, tempo);
+
+			document.getElementById("comecar").disabled = true;
+			document.getElementById("parar").disabled = false;
+		}
+
+		function parar () {
+			var id = window.setTimeout(function() {}, 0);
+			while (id--) {
+   				window.clearTimeout(id);
+			}
+			estado = "00000100000";
+			document.getElementById("comecar").disabled = false;
+			document.getElementById("parar").disabled = true;
+		}
+
+		function getRegra(n) {
+			rule ^= n;
+			regra = intToBinary(rule);
+			console.log(regra);
+			regraCA(regra);
+			console.log(ca);
+			inputRegra = true;
+			document.getElementById("regra").innerHTML = rule + '';
+		}
+
+		function intToBinary(n) {
+        	var res = n.toString(2);
+        	while(res.length !=8){
+            	res = "0"+res;
+        	}
+        	return res;
+    	}
+
+    	function regraCA (r) {
+    		for (var i = 0; i < ca.length; i++) {
+				ca[i][1] = r[i];
+			}
+    	}
+
+    	function newState (s) {
+    		var newState = "0";
+    		var igual = false;
+    		var pos = 1;
+    		while (pos < s.length - 1) {
+    			var sub = s.substring(pos-1,pos+2);
+    			for (var i = 0; i < ca.length; i++) {
+    				if (sub == ca [i][0] && ca [i][1] == "1") {
+    					newState += "1";
+    					igual = true;
+    					break;
+    				}
+    			}
+    			if (!igual) {
+    				newState += "0";
+    			}
+    			igual = false;
+    			pos++;
+    		}
+    		newState += "0";
+    		return newState;
+    	}
+
+    	function actualizar () {
+    		estado = newState(estado);
+    	}
+	</script> 
+ </body>
+</html>
